@@ -1,4 +1,5 @@
 const faker = require('faker');
+const minionsRouter = require('./minions');
 
 let minionIdCounter = 1;
 
