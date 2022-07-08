@@ -5,7 +5,8 @@ module.exports = meetingsRouter;
 const {
     addToDatabase,
     getAllFromDatabase,
-    deleteAllFromDatabase
+    deleteAllFromDatabase,
+    createMeeting
 } = require('./db');
 
 // get all meetings
@@ -15,7 +16,7 @@ meetingsRouter.get('/', (req, res, next) => {
 
 // create new meeting and save to database
 meetingsRouter.post('/', (req, res, next) => {
-    const newMeeting = addToDatabase('meetings', req.body);
+    let newMeeting = addToDatabase('meetings', createMeeting());
     res.status(201).send(newMeeting);
 });
 
